@@ -1,0 +1,46 @@
+<link rel="stylesheet" href="login.component.scss">
+<div style="padding-top: 135px;">
+  <mat-card class="card">
+    <div class="div1"></div>
+    <div>
+      <mat-card-title class="fundoo">
+        <div class="mat-card-header-text">
+          <span style="color:rgb(4, 157, 204);font-size:30px;font-family: Google Sans;">F</span>
+          <span style="color: red;font-family: Google Sans;">u</span>
+          <span style="color: rgb(255, 217, 0);font-family: Google Sans;">n</span>
+          <span style="color:rgb(4, 157, 204);font-size:30px;font-family: Google Sans;">d</span>
+          <span style="color: rgb(4, 223, 4);font-family: Google Sans;">o</span>
+          <span style="color: rgb(252, 49, 49);font-family: Google Sans;">o</span>
+        </div>
+      </mat-card-title>
+    </div>
+    <br>
+    <div>
+      <mat-card-title class="mattitle">Sign In</mat-card-title>
+      <br>
+      <mat-card-subtitle class="matsubtitle">Use your Fundoo Account</mat-card-subtitle>
+    </div>
+
+    <form [formGroup]="loginForm" (ngSubmit)="OnSubmit()">
+      <div class="emailpass">
+        <mat-form-field appearance="outline" class="email">
+          <mat-label aria-autocomplete="off">Email id</mat-label>
+          <input matInput placeholder="Enter your email id" type="email" formControlName="email" />
+        </mat-form-field>
+
+
+        <mat-form-field appearance="outline" class="password">
+          <mat-label>Enter your password</mat-label>
+          <input matInput placeholder="Enter your password" type="password" autocomplete="off" requried formControlName="password" />
+        </mat-form-field>
+        <div>
+          <button mat-button class="forgot" style="color:rgb(4, 157, 204);" routerLink="/ForgotPassword"><b>ForgotPassword?</b></button>
+        </div>
+      </div>
+      <div id="register">
+        <button mat-button style="color:rgb(4, 157, 204);" routerLink="/Register"><b>Create Account</b></button>
+        <button id="login" mat-raised-button color="primary">Login</button>
+      </div>
+    </form>
+  </mat-card>
+</div>

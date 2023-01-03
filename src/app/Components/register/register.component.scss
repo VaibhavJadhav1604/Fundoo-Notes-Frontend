@@ -1,0 +1,89 @@
+.layout {
+  padding-top: 175px;
+  padding-left: 540px;
+  padding-right: 300px;
+}
+
+.container {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  height: 480px;
+  width: 70%;
+  border: 1px solid lightgray;
+  box-shadow: 0px 0px 10px #00000029;
+  border-radius: 20px;
+  font-size: 16px;
+  margin-top: 30px;
+  padding-left: 60px;
+  padding-right: 20px;
+}
+
+.reg-container {
+  margin-top: 5px;
+  display: flex;
+  min-width: 60%;
+  flex-direction: column;
+}
+
+.image {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 40%;
+  text-align: center;
+  color: #42515f;
+  font-size: 17px;
+  padding-left: 50px;
+  padding-right: 10px;
+}
+.imgtext
+{
+  padding-right: 50px;
+}
+.form-head,.form-account {
+  font-family: Google Sans;
+  padding: 10px;
+}
+
+.form-group {
+  height: 50px;
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 5px;
+}
+
+mat-hint {
+  font-size: 13px;
+  color: #68696b;
+  text-decoration: none;
+  padding-bottom: 20px;
+  padding-left: 5px;
+}
+.confpass
+{
+  margin-bottom: 5px;
+}
+.form-group1
+{
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 5px;
+}
+.form-field {
+  height: fit-content;
+  width:100%;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.btn-instead {
+  font-weight: 500;
+  color: #1a73e8;
+  padding: 10px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
