@@ -1,0 +1,29 @@
+<div class="main">
+    <form [formGroup]="createnote" (ngSubmit)="OnSubmit()">
+        <div class="up" (click)="hideAndShow()" *ngIf="show || !show">
+            <input placeholder="Title" class="titleInput" formControlName="title">
+            <div class="titleImgSection">
+                <div *ngIf="ImgOne">
+                    <a class="iconstag1"> <img src="../../../assets/Images/Checkbox.png" height="25px" title="New List"> </a>
+                    <a class="iconstag2"> <img src="../../../assets/Images/Brush.png" height="25px" title="New Note With Drawing"> </a>
+                    <a class="iconstag3"> <img src="../../../assets/Images/Gallery.png" height="25px" title="New Note With Image"> </a>
+                </div>
+                <span *ngIf="ImgTwo">
+                    <a> <img src="../../../assets/Images/Pin.png" height="25px" title="Pin Note"> </a>
+                </span>
+            </div>
+        </div>
+
+        <div *ngIf="show" class="down">
+            <div appearance="fill">
+                <textarea matInput placeholder="Take a note" class="takeanote" formControlName="note"></textarea>
+            </div>
+            <div style="display: flex;">
+                <app-icons></app-icons>
+                <div style="margin-left: auto;margin-right: 10px;margin-top: 10px;">
+                    <button mat-button (ngSubmit)="OnSubmit()">Close</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
