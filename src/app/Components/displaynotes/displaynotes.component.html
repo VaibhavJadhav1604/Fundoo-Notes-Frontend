@@ -1,0 +1,13 @@
+<div class="container" fxLayout="row wrap">
+    <div class="notes" *ngFor="let notes of noteslist">
+        <div class="title">
+            <p (click)="OpenDialogBox(notes)">{{notes.title}}</p>
+        </div>
+        <div class="description">
+            <p (click)="OpenDialogBox(notes)">{{notes.note}}</p>
+        </div>
+        <div class="icon">
+            <app-icons></app-icons>
+        </div>
+    </div>
+</div>
