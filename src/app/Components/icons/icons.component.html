@@ -1,20 +1,53 @@
-<div style="display: flex;">
+<div style="display: flex;" *ngIf="!istrash">
+  <div>
     <button mat-icon-button title="Remind Me">
       <img src="../../../assets/Images/RemindMe.png" style="height:18px;width:18px;">
     </button>
+  </div>
+  <div>
     <button mat-icon-button title="Add Collaborator">
       <img src="../../../assets/Images/AddPerson.png" style="height:18px;width:18px;">
     </button>
+  </div>
+  <div>
     <button mat-icon-button title="Background Options">
       <img src="../../../assets/Images/Colors.png" style="height:18px;width:18px;">
     </button>
+  </div>
+  <div>
     <button mat-icon-button title="Add Images">
       <img src="../../../assets/Images/Gallery.png" style="height:18px;width:18px;">
     </button>
-    <button mat-icon-button title="Archive">
+  </div>
+  <div *ngIf="!isarchive">
+    <button mat-icon-button title="Archive" (click)="archivenote()">
       <img src="../../../assets/Images/Archive.png" style="height:18px;width:18px;">
     </button>
-    <button mat-icon-button title="More">
-      <img src="../../../assets/Images/More.png" style="height:18px;width:18px;">
+  </div>
+  <div  *ngIf="isarchive">
+    <button mat-icon-button title="UnArchive" (click)="unarchivenote()">
+      <img src="../../../assets/Images/UnArchive.png" style="height:18px;width:18px;">
     </button>
   </div>
+  <div>
+    <button mat-icon-button title="More" [matMenuTriggerFor]="menu">
+      <img src="../../../assets/Images/More.png" style="height:18px;width:18px;">
+      <mat-menu #menu>
+        <button mat-menu-item (click)="trashnote()">Delete Note</button>
+        <button mat-menu-item>Add label</button>
+        <button mat-menu-item>Add drawing </button>
+        <button mat-menu-item>Make a copy</button>
+        <button mat-menu-item>Show checkboxes</button>
+        <button mat-menu-item>Copy to Google Docs</button>
+      </mat-menu>
+    </button>
+  </div>
+</div>
+<div *ngIf="istrash">
+  <button mat-icon-button title="DeleteForever" (click)="deletenote()">
+    <img src="../../../assets/Images/DeleteForever.png" style="height:18px;width:18px;">
+  </button>
+  <button mat-icon-button title="Restore" (click)="restorenote()">
+    <img src="../../../assets/Images/RestoreTrash.png" style="height:18px;width:18px;">
+  </button>
+</div>

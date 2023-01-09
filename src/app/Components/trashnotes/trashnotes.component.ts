@@ -2,23 +2,22 @@ import { Component, OnInit } from '@angular/core';
 import { NoteService } from 'src/app/Services/Note/note.service';
 
 @Component({
-  selector: 'app-notes',
-  templateUrl: './notes.component.html',
-  styleUrls: ['./notes.component.scss']
+  selector: 'app-trashnotes',
+  templateUrl: './trashnotes.component.html',
+  styleUrls: ['./trashnotes.component.scss']
 })
-export class NotesComponent implements OnInit{
-  notesArray:any;
-  isArchive=false;
-  isTrash=false;
-  
-  constructor(private note: NoteService){}
+export class TrashnotesComponent implements OnInit{
+notesArray:any;
+
+constructor(private notes:NoteService){}
 
   ngOnInit(): void {
-    this.OnSubmit();
+    this.GetAllNotes();
   }
 
-  OnSubmit(){
-    this.note.GetAllNotes().subscribe((response:any)=>
+  GetAllNotes()
+  {
+    this.notes.GetAllNotes().subscribe((response:any)=>
     {
       console.log(response);
       this.notesArray=response.data;
@@ -26,11 +25,12 @@ export class NotesComponent implements OnInit{
       console.log(this.notesArray);
       this.notesArray.reverse();
       this.notesArray=this.notesArray.filter((result:any)=>{
-        return result.isArchive==false && result.isTrash==false;
+        return result.isTrash==true;
       })
     })
   }
   receiveMessage($event:any){
-    this.OnSubmit();
+    console.log("Inside Get All Notes",$event);
+    this.GetAllNotes();
   }
 }

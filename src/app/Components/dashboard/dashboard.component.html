@@ -1,10 +1,13 @@
 <div>
     <mat-toolbar class="toolbar">
-        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="drawer.toggle()" aria-label="Main Menu">
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon"
+            (click)="drawer.toggle()" aria-label="Main Menu">
             <mat-icon>menu</mat-icon>
         </button>
-        <img src="../../../assets/Images/Google_Keep_icon_(2020).svg.png" style="height:40px;width:40px;cursor: pointer;" title="Keep">
-        <h2 style="color:gray;font-size:25px;font-family: Google Sans;padding-top: 20px;padding-left: 10px;cursor: pointer;" title="Keep">KEEP</h2>
+        <img src="../../../assets/Images/Google_Keep_icon_(2020).svg.png"
+            style="height:40px;width:40px;cursor: pointer;" title="Keep">
+        <h2 style="color:gray;font-size:25px;font-family: Google Sans;padding-top: 20px;padding-left: 10px;cursor: pointer;"
+            title="Keep">KEEP</h2>
         <div class="wholesearchbox">
             <img style="margin-left: 10px; height: 20px;margin-top: 8px;" src="../../../assets/Images/Search.png">
             <input class="inputSearchbox" type="search" placeholder="Search">
@@ -24,10 +27,11 @@
             </button>
 
             <button mat-icon-button class="toolbarbuttons">
-                <img src="../../../assets/Images/Apps.png" style="height:26px;width:26px;" title="Settings">
+                <img src="../../../assets/Images/Apps.png" style="height:26px;width:26px;" title="Apps">
             </button>
             <button mat-icon-button class="toolbarbuttons">
-                <img src="../../../assets/Images/Profile.png" style="height:26px;width:26px;border-radius: 20px;border: 1px solid black;" title="Settings">
+                <img src="../../../assets/Images/Profile.png"
+                    style="height:26px;width:26px;border-radius: 20px;border: 1px solid black;" title="Profile">
             </button>
         </div>
     </mat-toolbar>
@@ -35,30 +39,30 @@
 </div>
 <div class="downcontainer">
     <div class="half1" style="width: 70px;height: 800px;">
-        <button mat-icon-button class="toolbarbuttons" (mouseover)="drawer.toggle()">
+        <button mat-icon-button class="toolbarbuttons" (click)="drawer.toggle()">
             <img src="../../../assets/Images/Bulb.png" style="height:26px;width:26px;" title="Refresh">
         </button>
         <br>
-        <button mat-icon-button class="toolbarbuttons" (mouseover)="drawer.toggle()">
-            <img src="../../../assets/Images/Notification.png" style="height:26px;width:26px;" title="Refresh">
+        <button mat-icon-button class="toolbarbuttons" (click)="drawer.toggle()">
+            <img src="../../../assets/Images/Notification.png" style="height:26px;width:26px;" title="Notification">
         </button>
         <br>
-        <button mat-icon-button class="toolbarbuttons" (mouseover)="drawer.toggle()">
-            <img src="../../../assets/Images/Edit.png" style="height:26px;width:26px;" title="Refresh">
+        <button mat-icon-button class="toolbarbuttons" (click)="drawer.toggle()">
+            <img src="../../../assets/Images/Edit.png" style="height:26px;width:26px;" title="Edit Labels">
         </button>
         <br>
-        <button mat-icon-button class="toolbarbuttons" (mouseover)="drawer.toggle()">
-            <img src="../../../assets/Images/Archive.png" style="height:26px;width:26px;" title="Refresh">
+        <button mat-icon-button class="toolbarbuttons" (click)="drawer.toggle()">
+            <img src="../../../assets/Images/Archive.png" style="height:26px;width:26px;" title="Archive">
         </button>
         <br>
-        <button mat-icon-button class="toolbarbuttons" (mouseover)="drawer.toggle()">
-            <img src="../../../assets/Images/Trash.png" style="height:26px;width:26px;" title="Refresh">
+        <button mat-icon-button class="toolbarbuttons" (click)="drawer.toggle()">
+            <img src="../../../assets/Images/Trash.png" style="height:26px;width:26px;" title="Trash">
         </button>
     </div>
     <mat-drawer-container class="example-container" autosize>
         <mat-drawer #drawer class="example-sidenav" mode="side">
             <div class="half2" style="width: 230px;height: 800px;">
-                <div style="height:48px;margin-top: 20px;" class="labels">
+                <div style="height:48px;margin-top: 20px;" class="labels" routerLink="./notes" selected>
                     <h2 style="font-family: Google Sans;padding-left: 10px;">Notes</h2>
                 </div>
                 <div style="height:48px;margin-top: 10px;" class="labels">
@@ -67,13 +71,16 @@
                 <div style="height:48px;margin-top: 10px;" class="labels">
                     <h2 style="font-family: Google Sans;padding-left: 10px;">Edit Labels</h2>
                 </div>
-                <div style="height:48px;margin-top: 10px;" class="labels">
+                <div style="height:48px;margin-top: 10px;" class="labels" routerLink="./archive">
                     <h2 style="font-family: Google Sans;padding-left: 10px;">Archive</h2>
                 </div>
-                <div style="height:48px;margin-top: 10px;" class="labels">
+                <div style="height:48px;margin-top: 10px;" class="labels" routerLink="./trash">
                     <h2 style="font-family: Google Sans;padding-left: 10px;">Trash</h2>
                 </div>
             </div>
         </mat-drawer>
     </mat-drawer-container>
+    <div style="width: 100%;height:fit-content">
+        <router-outlet></router-outlet>
+    </div>
 </div>
