@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { FormsModule } from "@angular/forms";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -21,10 +22,19 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
-import { DbComponent } from './Components/db/db.component';
-import { CreateNoteComponent } from './Components/create-note/create-note.component';
-import {MatExpansionModule} from '@angular/material/expansion';
-
+import { MatExpansionModule } from '@angular/material/expansion';
+import { DemoComponent } from './Components/demo/demo.component';
+import { AuthguardService } from './Services/Auth/authguard.service';
+import { NotesComponent } from './Components/notes/notes.component';
+import { IconsComponent } from './Components/icons/icons.component';
+import { CreatenoteComponent } from './Components/createnote/createnote.component';
+import { DisplaynotesComponent } from './Components/displaynotes/displaynotes.component';
+import { UpdatenotesComponent } from './Components/updatenotes/updatenotes.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { DemologinComponent } from './Component/demologin/demologin.component';
+import { TrashnotesComponent } from './Components/trashnotes/trashnotes.component';
+import { ArchivenotesComponent } from './Components/archivenotes/archivenotes.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -34,11 +44,19 @@ import {MatExpansionModule} from '@angular/material/expansion';
     ResetPasswordComponent,
     ForgotPasswordComponent,
     DashboardComponent,
-    DbComponent,
-    CreateNoteComponent
+    DemoComponent,
+    NotesComponent,
+    IconsComponent,
+    CreatenoteComponent,
+    DisplaynotesComponent,
+    UpdatenotesComponent,
+    DemologinComponent,
+    TrashnotesComponent,
+    ArchivenotesComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatFormFieldModule,
@@ -53,9 +71,13 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatMenuModule,
     MatSidenavModule,
     MatListModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatDialogModule,
+    MatSnackBarModule
   ],
-  providers: [],
+  providers: [
+    AuthguardService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
