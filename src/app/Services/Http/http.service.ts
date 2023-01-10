@@ -27,4 +27,10 @@ export class HttpService {
   {
     return this.httpClient.get(this.baseurl+url,token && httpOptions)
   }
+
+  deleteService(url:string,reqData:any,token:boolean=true,httpOptions:any={})
+  {
+    return this.httpClient.delete(this.baseurl+url,token && httpOptions)
+  }
+
 }
