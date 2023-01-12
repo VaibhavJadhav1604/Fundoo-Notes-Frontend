@@ -14,7 +14,7 @@ export class IconsComponent implements OnInit {
 
   @Input() trashnotecard: any;
   @Output() iconEvent = new EventEmitter<string>();
-  constructor(private notes: NoteService, private route: ActivatedRoute,private snackbar:MatSnackBar) { }
+  constructor(private notes: NoteService, private route: ActivatedRoute, private snackbar: MatSnackBar) { }
 
   istrash: boolean = false;
   isarchive: boolean = false;
@@ -29,7 +29,32 @@ export class IconsComponent implements OnInit {
       this.isarchive = true;
     }
   }
+  Colors: Array<any> =
+    [
+      { code: '#FF0000', name: 'Red' },
+      { code: '#00FFFF', name: 'Aqua' },
+      { code: '#FFFF00', name: 'Yellow' },
+      { code: '#ADFF2F', name: 'GreenYellow' },
+      { code: '#C0C0C0', name: 'Silver' },
+      { code: '#FF00FF', name: 'Magenta' },
+      { code: '#00FF00', name: 'Green' },
+      { code: '#FFA500', name: 'Orange' },
+      { code: '#FFFFFF', name: 'White' },
+      { code: '#0000FF', name: 'Blue' },
+    ]
 
+    setColors(color:any)
+    {
+      let reqData={
+        Color:color.name,
+        noteId:this.trashnotecard.noteId
+      }
+      this.notes.UpdateColor(reqData).subscribe((Response:any)=>
+      {
+        console.log(Response)
+        this.iconEvent.emit(Response);
+      })
+    }
   trashnote() {
     let reqData = {
       noteId: [this.trashnotecard.noteId],
@@ -40,7 +65,7 @@ export class IconsComponent implements OnInit {
       console.log(Response);
       this.iconEvent.emit(Response);
     })
-    this.snackbar.open("Note Trashed SuccessFully",'',{duration:2000});
+    this.snackbar.open("Note Trashed SuccessFully", '', { duration: 2000 });
   }
 
   restorenote() {
@@ -53,7 +78,7 @@ export class IconsComponent implements OnInit {
       console.log(Response);
       this.iconEvent.emit(Response);
     })
-    this.snackbar.open("Note Restored SuccessFully",'',{duration:2000});
+    this.snackbar.open("Note Restored SuccessFully", '', { duration: 2000 });
   }
 
   deletenote() {
@@ -66,7 +91,7 @@ export class IconsComponent implements OnInit {
       console.log(Response);
       this.iconEvent.emit(Response);
     })
-    this.snackbar.open("Note Deleted SuccessFully",'',{duration:2000});
+    this.snackbar.open("Note Deleted SuccessFully", '', { duration: 2000 });
   }
 
   archivenote() {
@@ -79,7 +104,7 @@ export class IconsComponent implements OnInit {
       console.log(Response);
       this.iconEvent.emit(Response);
     })
-    this.snackbar.open("Note Archived SuccessFully",'',{duration:2000});
+    this.snackbar.open("Note Archived SuccessFully", '', { duration: 2000 });
   }
 
   unarchivenote() {
@@ -92,7 +117,7 @@ export class IconsComponent implements OnInit {
       console.log(Response);
       this.iconEvent.emit(Response);
     })
-    this.snackbar.open("Note UnArchived SuccessFully",'',{duration:2000});
+    this.snackbar.open("Note UnArchived SuccessFully", '', { duration: 2000 });
   }
 }
 
