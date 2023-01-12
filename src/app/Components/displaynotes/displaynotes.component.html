@@ -1,13 +1,15 @@
-<div class="container" fxLayout="row wrap">
-    <div class="notes" *ngFor="let notes of noteslist">
-        <div class="title">
-            <p (click)="OpenDialogBox(notes)">{{notes.title}}</p>
-        </div>
-        <div class="description">
-            <p (click)="OpenDialogBox(notes)">{{notes.note}}</p>
-        </div>
-        <div class="icon">
-            <app-icons [trashnotecard]="notes" (iconEvent)="receivedMessage($event)"></app-icons>
+<div class="container">
+    <div class="notes" *ngFor="let notes of noteslist | filter:filterNote">
+        <div class="main"  [style.background]="notes.color">
+            <div class="title">
+                <p (click)="OpenDialogBox(notes)">{{notes.title}}</p>
+            </div>
+            <div class="description">
+                <p (click)="OpenDialogBox(notes)">{{notes.note}}</p>
+            </div>
+            <div class="icon">
+                <app-icons [trashnotecard]="notes" (iconEvent)="receivedMessage($event)"></app-icons>
+            </div>
         </div>
     </div>
 </div>

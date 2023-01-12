@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { DataService } from 'src/app/Services/Data/data.service';
 import { UpdatenotesComponent } from '../updatenotes/updatenotes.component';
 
 @Component({
@@ -8,8 +9,8 @@ import { UpdatenotesComponent } from '../updatenotes/updatenotes.component';
   styleUrls: ['./displaynotes.component.scss']
 })
 export class DisplaynotesComponent implements OnInit{
-
-  constructor(public dialog:MatDialog)
+filterNote:any;
+  constructor(public dialog:MatDialog,private data:DataService)
   {
 
   }
@@ -19,7 +20,11 @@ export class DisplaynotesComponent implements OnInit{
   message : any;
 
   ngOnInit(): void {
-
+    this.data.incomingData.subscribe((Response)=>
+    {
+      console.log("Search In Progress",Response);
+      this.filterNote=Response;
+    })
   }
 
   OpenDialogBox(notes:any)

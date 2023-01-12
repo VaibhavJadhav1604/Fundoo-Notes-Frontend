@@ -1,8 +1,14 @@
 .container{
     display: flex;
     flex-wrap: wrap;
-    margin: auto;
     margin-left: 20px;
+}
+.main{
+    width:310px;
+    display: flex;
+    flex-wrap: wrap;
+    height: 130px;
+    border-radius: 10px 10px 10px 10px;
 }
 .notes {
     border: 1px;
@@ -13,8 +19,6 @@
     flex-direction: column;
     width: 300px;
     margin-top: 40px;
-    padding-top: 15px;
-    padding-bottom: 5px;
     margin-left: 15px;
     padding-right: 10px;
     background-color: white;
@@ -23,10 +27,14 @@
     box-shadow: 1px 1px 3px 3px gray;
 }
 .title {
+    margin-top: 15px;
+    width: 310px;
+    display: flex;
     margin-left: 10px;
     font-size: 25px;
 }
 .description {
+    display: flex;
     margin-left: 10px;
     font-size: medium;
 }
